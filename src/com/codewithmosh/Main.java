@@ -1,5 +1,9 @@
+package com.codewithmosh;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        int myAge = 30;
+        int herAge = myAge;
+        System.out.println(herAge);
     }
 }
