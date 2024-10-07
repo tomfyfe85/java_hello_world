@@ -19,6 +19,7 @@ package com.codewithmosh;
 //Annual interest rate: e.g. %3.45
 //Period (years): e.g. 56
 
+import java.text.NumberFormat;
 import java.util.Scanner;
 
 //Mortgage: => money owed each month
@@ -26,12 +27,17 @@ public class Main {
     public static void main(String[] args) {
     // prompt user to enter loan amount
         System.out.println("Enter loan amount in GBP");
-        Scanner amount = new Scanner(System.in);
-        int name = amount.nextInt();
+        Scanner input = new Scanner(System.in);
+        int num = input.nextInt();
 
-        System.out.println(name);
-//        Int mortgage = amount.nextInt();
-//        System.out.println(mortgage);
+        System.out.println("Enter annual interest rate");
+
+
+        NumberFormat amount  = NumberFormat.getCurrencyInstance();
+        String result = amount.format(num);
+        System.out.println(result);
+        //        Int mortgage = amount.nextInt();
+        //        System.out.println(mortgage);
 
     }
 }
