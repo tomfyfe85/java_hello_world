@@ -2,6 +2,7 @@ package com.codewithmosh;
 
 //Project - Mortgage calculator
 //when you run program =>
+
 //Principal: (amount of loan I want to get eg 100000)
 //Annual interest rate: (IE %3.92) = actual interest is .0392 as it was represented as a % -
 //-so what every the user enters, divide by 100 then 12
@@ -18,10 +19,19 @@ package com.codewithmosh;
 //Annual interest rate: e.g. %3.45
 //Period (years): e.g. 56
 
+import java.util.Scanner;
+
 //Mortgage: => money owed each month
 public class Main {
     public static void main(String[] args) {
-    // Solution
+    // prompt user to enter loan amount
+        System.out.println("Enter loan amount in GBP");
+        Scanner amount = new Scanner(System.in);
+        int name = amount.nextInt();
+
+        System.out.println(name);
+//        Int mortgage = amount.nextInt();
+//        System.out.println(mortgage);
+
     }
 }
-
