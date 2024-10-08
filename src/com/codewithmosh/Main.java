@@ -24,22 +24,23 @@ import java.util.Scanner;
 //Mortgage: => money owed each month
 public class Main {
     public static void main(String[] args) {
+        byte PERCENT = 100;
+        byte MONTHS_IN_YEAR = 12;
 
     // prompt user to enter loan amount
         System.out.println("Enter loan amount in GBP");
-        Scanner input = new Scanner(System.in);
-        float principle = input.nextFloat();
+        Scanner scanner = new Scanner(System.in);
+        float principle = scanner.nextFloat();
 
     // prompt user for interest rates
         System.out.println("Enter annual interest rate");
-        Scanner percentage = new Scanner(System.in);
+        float percentage = scanner.nextFloat();
         //  multiply 100, divide by 12
-        Float annual =  percentage.nextFloat() / 100;
-        Float r = annual / 12;
+        Float r =  percentage / PERCENT / MONTHS_IN_YEAR;
 
         System.out.println("Enter period (Years)");
-        Scanner time = new Scanner(System.in);
-        int numberOfPayments = time.nextInt() * 12;
+        byte years = scanner.nextByte();
+        int numberOfPayments = years * MONTHS_IN_YEAR;
 
     /*Equation:
       numerator
