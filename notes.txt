@@ -35,4 +35,9 @@ reading input
 
  PART2:
  COMPARISON OPERATORS:
+if {}
+else if
+//code
 
+keep statements in a vertical line
+no need  for {} after else if and else
