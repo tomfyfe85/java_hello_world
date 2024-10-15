@@ -72,4 +72,73 @@ switch statements:
             default:
                 System.out.println("you're a guest");
 
+fizzbuzz :
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Number: ");
+        int num = scanner.nextInt();
 
+        if (num % 5 == 0 && num % 3 == 0)
+            System.out.println("fizzbuzz");
+        else if (num % 5 == 0)
+            System.out.println("fizz");
+        else if (num % 3 == 0)
+            System.out.println("buzz");
+        else
+            System.out.println(num);
+
+LOOPS:
+for loops:
+          for (int i = 0; i < 5; i++)
+          System.out.println("Hi Chants" + i);
+
+while loops:
+ 1)       while (i > 0) {
+            System.out.println("Hi Chants" + i);
+            i--;
+--------------------------------------------------
+2)       Scanner scanner = new Scanner(System.in);
+        String input = "";
+        while (!input.equals("quit")){
+            System.out.println("input: ");
+            input = scanner.next().toLowerCase();
+            }
+        }
+        use in situations when you don't know excactly how many times you want to repeat something
+
+do while loops:
+                do {
+                    System.out.println("input: ");
+                    input = scanner.next().toLowerCase();
+                    System.out.println(input);
+                } while (!input.equals("quit"));
+        even if the condition is met the code block will be ran at least once
+
+using continue and break:
+ Scanner scanner = new Scanner(System.in);
+        String input = "";
+        while (true){
+
+            System.out.println("input: ");
+            input = scanner.next().toLowerCase();
+            if (input.equals("pass"))
+                continue;
+                // continue goes straight back to the top of the loo.
+            if (input.equals("quit"))
+                break;
+                // break terminates the loop
+            System.out.println(input);
+        }
+
+ for each:
+ iterating over arrays or collections
+
+       / for loop
+       for (int i = fruits.length; i > 0; i--)
+           System.out.println(fruits[i]);
+
+        / for each
+       for (String fruit : fruits)
+           System.out.println(fruit);
+
+       with the for loop you can iterate in reverse,
+       also you can find items but index ir fruits[i]
