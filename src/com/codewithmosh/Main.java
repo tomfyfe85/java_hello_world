@@ -40,37 +40,43 @@ public class Main {
     public static void main(String[] args) {
         byte PERCENT = 100;
         byte MONTHS_IN_YEAR = 12;
+        float principle = 0;
+        float r = 0;
+        byte years = 0;
+        int numberOfPayments = 0;
 
     // prompt user to enter loan amount
-        System.out.println("Enter loan amount in GBP");
+        Scanner scanner = new Scanner(System.in);
 
         while (true){
-            Scanner scanner = new Scanner(System.in);
-            float principle = scanner.nextFloat();
-            if (principle < 1000.00 || principle > 1000000.00){
-                System.out.println("Enter an amount between 1k and 1m");
-                principle = scanner.nextFloat();}
-            else
+            System.out.println("Enter loan amount in GBP");
+            principle = scanner.nextFloat();
+            if(principle >= 1000.00 && principle <= 1000000.00)
                 break;
+            System.out.println("Enter an amount between 1k and 1m");
         }
 
     // prompt user for interest rates
-        System.out.println("Enter annual interest rate");
-        float percentage = scanner.nextFloat();
-        while (percentage <= 0 || percentage > 30){
+        while (true){
+            System.out.println("Enter annual interest percentage rate");
+            float percentage = scanner.nextFloat();
+            if (percentage >= 1 && percentage <= 30){
+                r =  percentage / PERCENT / MONTHS_IN_YEAR;
+                break;}
             System.out.println("enter interest more than 0 and less than or equal to 30");
-            percentage = scanner.nextFloat();
-        }
-        //  multiply 100, divide by 12
-        Float r =  percentage / PERCENT / MONTHS_IN_YEAR;
 
-        System.out.println("Enter period (Years)");
-        byte years = scanner.nextByte();
-        while (years < 1 || years > 30){
-            System.out.println("enter no. of years between 1 and 30");
-            years = scanner.nextByte();
         }
-        int numberOfPayments = years * MONTHS_IN_YEAR;
+
+
+        while (true){
+            System.out.println("Enter period (Years)");
+            years = scanner.nextByte();
+            if(years >= 1 && years <= 30){
+                numberOfPayments = years * MONTHS_IN_YEAR;
+                break;
+            }
+            System.out.println("enter no. of years between 1 and 30");
+        }
 
         float rPlus1 = (float) (r + 1.0);
         float rPower = (float) Math.pow(rPlus1, numberOfPayments);
