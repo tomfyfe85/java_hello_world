@@ -19,6 +19,20 @@ package com.codewithmosh;
 //Annual interest rate: e.g. %3.45
 //Period (years): e.g. 56
 
+//pt 2
+// adding error handling
+// Principle (£1k - £1M) - Principle must be in this range -
+// Principle (£1k - £1M) will loop until an amount in this range is given
+
+//Annual interest rate: - user must enter a value greater than 0 and less than 30
+//... otherwise an error message will show and the user can try again
+
+//Period (Years): - user must enter a value greater than 1 and less than 30
+//... otherwise an error message will show and the user can try again
+
+// if all of the above is satisfied the mortgage will be calculated
+
+
 import java.text.NumberFormat;
 import java.util.Scanner;
 //Mortgage: => money owed each month
@@ -31,20 +45,29 @@ public class Main {
         System.out.println("Enter loan amount in GBP");
         Scanner scanner = new Scanner(System.in);
         float principle = scanner.nextFloat();
+        while (principle < 1000.00 || principle > 1000000.00 ){
+            System.out.println("Enter an amount between 1k and 1m");
+            principle = scanner.nextFloat();
+        }
 
     // prompt user for interest rates
         System.out.println("Enter annual interest rate");
         float percentage = scanner.nextFloat();
+        while (percentage <= 0 || percentage > 30){
+            System.out.println("enter interest more than 0 and less than or equal to 30");
+            percentage = scanner.nextFloat();
+        }
         //  multiply 100, divide by 12
         Float r =  percentage / PERCENT / MONTHS_IN_YEAR;
 
         System.out.println("Enter period (Years)");
         byte years = scanner.nextByte();
+        while (years < 1 || years > 30){
+            System.out.println("enter no. of years between 1 and 30");
+            years = scanner.nextByte();
+        }
         int numberOfPayments = years * MONTHS_IN_YEAR;
 
-    /*Equation:
-      numerator
-        */
         float rPlus1 = (float) (r + 1.0);
         float rPower = (float) Math.pow(rPlus1, numberOfPayments);
         float numerator = r * rPower;
