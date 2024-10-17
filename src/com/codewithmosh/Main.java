@@ -43,11 +43,15 @@ public class Main {
 
     // prompt user to enter loan amount
         System.out.println("Enter loan amount in GBP");
-        Scanner scanner = new Scanner(System.in);
-        float principle = scanner.nextFloat();
-        while (principle < 1000.00 || principle > 1000000.00 ){
-            System.out.println("Enter an amount between 1k and 1m");
-            principle = scanner.nextFloat();
+
+        while (true){
+            Scanner scanner = new Scanner(System.in);
+            float principle = scanner.nextFloat();
+            if (principle < 1000.00 || principle > 1000000.00){
+                System.out.println("Enter an amount between 1k and 1m");
+                principle = scanner.nextFloat();}
+            else
+                break;
         }
 
     // prompt user for interest rates
