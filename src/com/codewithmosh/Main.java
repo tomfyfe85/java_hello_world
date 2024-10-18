@@ -40,10 +40,10 @@ public class Main {
     public static void main(String[] args) {
         byte PERCENT = 100;
         byte MONTHS_IN_YEAR = 12;
-        float principle = 0;
         float r = 0;
         byte years = 0;
         int numberOfPayments = 0;
+        float principle = 0;
 
     // prompt user to enter loan amount
         Scanner scanner = new Scanner(System.in);

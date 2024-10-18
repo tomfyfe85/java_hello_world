@@ -1,0 +1,10 @@
+CREATING METHODS
+public class Scratch {
+    public static void main(String[] args) {
+        greetUser("Tom", "Fyfe");
+    }
+    public static void greetUser(String firstName, String lastName){
+        System.out.println("hello " + firstName + " " + lastName);
+    }
+}
+
