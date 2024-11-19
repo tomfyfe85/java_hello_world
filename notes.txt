@@ -142,3 +142,5 @@ using continue and break:
 
        with the for loop you can iterate in reverse,
        also you can find items but index ir fruits[i]
+
+ tester
