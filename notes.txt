@@ -1,6 +1,15 @@
 import java.awt.*;
 import java.util.Arrays;
 
+a method is a function inside a class
+classes - Pascal naming
+methods - camel naming
+
+main method in project should always be static
+void - method will not return a value
+
+always surround textual data with double quotes
+
 byte > short > int > long > float > double
 
 
