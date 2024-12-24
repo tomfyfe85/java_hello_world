@@ -10,7 +10,21 @@ void - method will not return a value
 
 always surround textual data with double quotes
 
+primitive types - 8 primitive types
+
 byte > short > int > long > float > double
+-byte can store values up to 127
+- short up to 32k
+- int up to 2B
+
+long viewCount = 3_123_456_789L;
+use L at the end of the number as java compiler assumes large numbers to be ints although they are typed differently
+Same with doubles and floats. Java compiler sees float 2.99 as a double. - float 2.99F;
+
+char letter = 'A' - single characters with '', strings with ""
+
+reference types
+store date objects
 
 
 int result = Math.round(1.5F); => rounds up

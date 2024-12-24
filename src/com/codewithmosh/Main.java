@@ -2,11 +2,12 @@ package com.codewithmosh;
 
 //import java.util.Scanner;
 
+import java.util.Date;
+
 public class Main {
     public static void main(String[] args) {
-    int age = 30;
-    int temp = 50;
-
-    System.out.println(age + temp);
+    byte age = 30;
+    Date now = new Date();
+        System.out.println();
     }
 }
