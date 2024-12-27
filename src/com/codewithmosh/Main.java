@@ -2,12 +2,12 @@ package com.codewithmosh;
 
 //import java.util.Scanner;
 
+import java.awt.*;
 import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
-    byte age = 30;
-    Date now = new Date();
-        System.out.println();
+    Point point1 = new Point(1, 1);
+    Point point2 = point1;
     }
 }

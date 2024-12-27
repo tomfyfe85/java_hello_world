@@ -18,13 +18,17 @@ byte > short > int > long > float > double
 - int up to 2B
 
 long viewCount = 3_123_456_789L;
-use L at the end of the number as java compiler assumes large numbers to be ints although they are typed differently
+use L at the end of the number as java compiler assumes large numbers to be int, although they are typed differently
 Same with doubles and floats. Java compiler sees float 2.99 as a double. - float 2.99F;
 
 char letter = 'A' - single characters with '', strings with ""
 
 reference types
-store date objects
+example - store date objects
+Reference types are copied by their references and primitive are copied by their value
+IE if you make a new instance of a class and assign it a variable (A) and you assign another variable (B)
+to the initial variable (A), both variables will point to the same area of memory. So if you change a property B,
+it will be represented in the output with you print A.
 
 
 int result = Math.round(1.5F); => rounds up
@@ -126,7 +130,7 @@ while loops:
             input = scanner.next().toLowerCase();
             }
         }
-        use in situations when you don't know excactly how many times you want to repeat something
+        use in situations when you don't know exactly how many times you want to repeat something
 
 do while loops:
                 do {
@@ -134,7 +138,7 @@ do while loops:
                     input = scanner.next().toLowerCase();
                     System.out.println(input);
                 } while (!input.equals("quit"));
-        even if the condition is met the code block will be ran at least once
+        even if the condition is met the code block will run at least once
 
 using continue and break:
  Scanner scanner = new Scanner(System.in);
