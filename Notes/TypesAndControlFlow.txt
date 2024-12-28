@@ -48,6 +48,29 @@ Use \n to add a new line to the string - "c:\nWindows\\..." =>
 Windows\..."
 Use \t to add a tab in the string
 
+Arrays
+example - initialise an array. IE What is in the array int[] numbers = new int[5]
+This initialises an empty array which can hold up to 5 integers,
+numbers[0] = 1;
+numbers[1] = 2;
+=> [1,2,0,0,0]
+unused positions have a default value of 0
+
+String arrays - all items get initialised to and empty string
+Booloan arrays - all items get initialised to False
+
+New way of initialsing an array: int[] numbers = {2,3,5,1,4};
+=> [2, 3, 5, 1, 4]
+
+Arrays have a fixed length, can after they are created we cannot add/remove additional items to them
+(use a collection class)
+
+Arrays have methods like sort:
+  int[] numbers = {2,3,5,1,4};
+        Arrays.sort(numbers);
+        System.out.println(Arrays.toString(numbers))
+        => [1, 2, 3, 4, 5]
+
 int result = Math.round(1.5F); => rounds up
 int result = (int)Math.ceil(1.5F);
 int result = (int)Math.floor(1.2F);
