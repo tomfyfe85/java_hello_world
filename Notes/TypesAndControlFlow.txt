@@ -40,6 +40,14 @@ built in methods include:
 In java strings are immutable, we cannot change them. Any string method will return a new string
 object.
 
+Escape sequences:
+To use "" inside a string, use backslashes. IE "Hello \"Tom\"";
+To use backslashes inside a string use two - "c:\\Windows\\..." => "c:\Windows\..."
+Use \n to add a new line to the string - "c:\nWindows\\..." =>
+"c:
+Windows\..."
+Use \t to add a tab in the string
+
 int result = Math.round(1.5F); => rounds up
 int result = (int)Math.ceil(1.5F);
 int result = (int)Math.floor(1.2F);
