@@ -23,13 +23,22 @@ Same with doubles and floats. Java compiler sees float 2.99 as a double. - float
 
 char letter = 'A' - single characters with '', strings with ""
 
-reference types
-example - store date objects
 Reference types are copied by their references and primitive are copied by their value
 IE if you make a new instance of a class and assign it a variable (A) and you assign another variable (B)
 to the initial variable (A), both variables will point to the same area of memory. So if you change a property B,
 it will be represented in the output with you print A.
 
+Strings:
+Reference type that doesn't need the "new" keyword as it is used so often.
+built in methods include:
+.length()
+.startsWith()
+.indexOf()
+.replace()
+.toLowerCase()
+.trim() - gets rid of white at the front and  back of the string
+In java strings are immutable, we cannot change them. Any string method will return a new string
+object.
 
 int result = Math.round(1.5F); => rounds up
 int result = (int)Math.ceil(1.5F);
