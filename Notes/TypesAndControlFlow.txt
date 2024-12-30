@@ -70,7 +70,54 @@ Use curly braces - get rid of the new operator:
         }
         => [[1, 2, 3], [4, 5, 6]]
 
+Constants
+Add "final" keyword to initialize a constant EG
+        final float PI = 3.14F;
+        PI = 1;
+        - PI will not be changed to 1
+        - use CAPS to name a constant
 
+Arithmetic Expressions
+  int result = 10/3
+In java, the division of 2 whole numbers is a whole number
+=> 3
+In order to get a floating point number we need to convert to a float or a double:
+        double result = (double)10/(double)3;
+        => 3.3333333333333335
++ - / % etc. are called arithmetic operators, the numbers used are called operands.
+
+increment/decrement ++/--
+       int x = 1;
+        x++;
+        System.out.println(x);
+        => 2
+++ can be a prefix or postfix
+        int x = 1;
+        int y = x++;
+        System.out.println(x);
+        =>2
+        System.out.println(y);
+        =>1
+
+If the ++ is on the right of x, y will assign its self to x (x is 1) first, then x will be incremented
+however,  if ++ is on the left, x will be incremented (x is 2) before it is assigned to y
+
+        int x = 1;
+        int y = ++x;
+        System.out.println(x);
+        =>2
+        System.out.println(y);
+        =>2
+
+However:
+       int x = 1;
+       x = x + 1;
+       // or x += 1 - augmented assignment operator
+       System.out.println(x);
+         => 2
+         not 1
+This is because the arithmetic operators will recalculate and assign, whereas ++ or -- modifies
+x directly before (++x) or after (x++) the expression is evaluated.
 
 
 
@@ -228,4 +275,5 @@ using continue and break:
        with the for loop you can iterate in reverse,
        also you can find items but index ir fruits[i]
 
- tester
+
+
