@@ -56,10 +56,28 @@ numbers[1] = 2;
 => [1,2,0,0,0]
 unused positions have a default value of 0
 
-String arrays - all items get initialised to and empty string
-Booloan arrays - all items get initialised to False
+Multidimensional arrays
+2 by 3 matrix -  2 rows and 3 columns
+    int[][] numbers = new int[2][3];
+        numbers[0][0] = 1; - column 1 of row 1 == 1
+         System.out.println(Arrays.deepToString(numbers));
+         =>[[1, 0, 0], [0, 0, 0]]
+to make a 3 dimational array just add another set of brackets as specify the length
 
-New way of initialsing an array: int[] numbers = {2,3,5,1,4};
+Use curly braces - get rid of the new operator:
+ int[][] numbers = {{1,2,3}, {4,5,6}};
+        System.out.println(Arrays.deepToString(numbers));
+        }
+        => [[1, 2, 3], [4, 5, 6]]
+
+
+
+
+
+String arrays - all items get initialised to null
+Boolean arrays - all items get initialised to false
+
+New way of initialing an array: int[] numbers = {2,3,5,1,4};
 => [2, 3, 5, 1, 4]
 
 Arrays have a fixed length, can after they are created we cannot add/remove additional items to them
