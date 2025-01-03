@@ -119,7 +119,13 @@ However:
 This is because the arithmetic operators will recalculate and assign, whereas ++ or -- modifies
 x directly before (++x) or after (x++) the expression is evaluated.
 
-
+Order of operations:
+multiplication and division have higher priority than + and -
+in java 10 + 3 * 2 = 16
+(10 + 3) * 2 = 26
+()
+*/
++-
 
 String arrays - all items get initialised to null
 Boolean arrays - all items get initialised to false
