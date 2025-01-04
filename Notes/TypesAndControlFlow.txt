@@ -12,7 +12,7 @@ always surround textual data with double quotes
 
 primitive types - 8 primitive types
 
-byte > short > int > long > float > double
+byte > short(2 bytes) > int(4 bytes) > long > float > double
 -byte can store values up to 127
 - short up to 32k
 - int up to 2B
@@ -126,6 +126,34 @@ in java 10 + 3 * 2 = 16
 ()
 */
 +-
+
+CASTING:
+// Implicit casting
+short x = 1
+int y = x + 2
+=> y = 3
+Because the short is smaller than the int, Java can make a copy of the short
+and use it in the equation as an int. This happens automatically.
+byte > short > int > long > float > double
+
+// Explicit casting
+double x = 1
+int y = x + 2 - gives an error as x is a double and of greater memory than the int y
+
+int y = (int)x + 2
+=> 3 - here x is converted to an integer from a double
+
+This can only happen between compatible types IE here all types are numbers
+We can't cast a string to a number in this way
+For primitive types, there are wrapper classes:
+
+
+String x = "1";
+int y = Integer.parseInt(x) + 2; //wrapper class for int primitive type
+System.out.println(y);
+=> 3
+
+
 
 String arrays - all items get initialised to null
 Boolean arrays - all items get initialised to false

@@ -3,8 +3,8 @@ package com.codewithmosh;
 
 public class Main {
     public static void main(String[] args) {
-        int x = 1;
-        x = x + 1;
-        System.out.println(x);
+        String x = "1";
+        int y = Integer.parseInt(x) + 2; //wrapper class for int primitive type
+        System.out.println(y);
     }
 }
