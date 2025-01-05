@@ -147,11 +147,40 @@ This can only happen between compatible types IE here all types are numbers
 We can't cast a string to a number in this way
 For primitive types, there are wrapper classes:
 
-
 String x = "1";
-int y = Integer.parseInt(x) + 2; //wrapper class for int primitive type
+int y = Integer.parseInt(x) + 2; //wrapper class for int primitive type - converts "1" to 1
 System.out.println(y);
 => 3
+
+THE MATH CLASS
+EG:
+int result Math.round(1.4F); returns an integer to nearest int
+=>1
+
+If the number is a double it will return a long
+long result = Math.round(1.4444445D);
+=>1
+
+double result = Math.ceil(1.1F); - ceil returns a double of the next highest integer
+System.out.println(result);
+=> 2.0
+
+Explicitly cast to make it an int if int is your variable type
+   int result = (int)Math.ceil(1.1F);
+   System.out.println(result);
+=> 2
+
+Math.floor is the same but returns a double the of the next lowest int
+
+Math.max returns the greater of two numbers, min does the opposite
+  int result = Math.max(1,2);
+  => 2
+
+Math.random() - returns a double between 0 - 1
+ int result = (int)Math.round(Math.random() * 100);
+ System.out.println(result);
+ As Math.round with double returns a long, we have it explicilty
+ cast it to a lower type if required, IE an int
 
 
 
