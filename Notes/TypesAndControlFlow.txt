@@ -183,7 +183,27 @@ Math.random() - returns a double between 0 - 1
  cast it to a lower type if required, IE an int
 
 FORMATTING NUMBERS
-N
+NumberFormat currency = new NumberFormat()
+new NumberFormat() is an abstract class
+You cannot create an instance of an abstract class
+
+NumberFormat has a number of factory methods beginning with 'get'
+Use these to instantiate an abstract class
+Called a factory method because it creates new objects
+
+        NumberFormat currency = NumberFormat.getCurrencyInstance(); - currency is the new instantiated NumberFormat object
+        String result = currency.format(123456.891);
+
+        the format method with return a string representation of the number
+        => $123,456.89
+
+use getPercentInstance()
+        NumberFormat percentage = NumberFormat.getPercentInstance();
+        String result = percentage.format(0.1);
+        System.out.println(result);
+        => 10%
+or
+        String percentage = NumberFormat.getPercentInstance().format(0.1);
 
 String arrays - all items get initialised to null
 Boolean arrays - all items get initialised to false
