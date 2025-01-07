@@ -182,7 +182,8 @@ Math.random() - returns a double between 0 - 1
  As Math.round with double returns a long, we have it explicilty
  cast it to a lower type if required, IE an int
 
-
+FORMATTING NUMBERS
+N
 
 String arrays - all items get initialised to null
 Boolean arrays - all items get initialised to false
