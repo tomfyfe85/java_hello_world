@@ -2,10 +2,15 @@ package com.codewithmosh;
 
 
 import java.text.NumberFormat;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        String percentage = NumberFormat.getPercentInstance().format(0.1);
-        System.out.println(percentage);
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Name: ");
+        String name = scanner.nextLine().trim();
+        System.out.println("you are " + name);
+
+
     }
 }

@@ -187,6 +187,47 @@ NumberFormat currency = new NumberFormat()
 new NumberFormat() is an abstract class
 You cannot create an instance of an abstract class
 
+
+READING INPUT FROM THE USER
+   Scanner scanner = new Scanner(System.in);
+   System.out.print("Age: "); // print with no ln will not add a line so we can type on the same line as age:
+   byte age = scanner.nextByte();
+    System.out.println("you are " + age)
+Use Scanner class to raed input from the terminal
+.nextByte() only works for bytes, .nextDouble() etc for other prim types
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Name: ");
+        String name = scanner.next();
+        System.out.println("you are " + name);
+
+Name: tom
+scanner.next() gives a string
+=> you are tom
+
+Name: tom fyfe
+=> you are tom
+.next() returns 1 token, that token is the first string in the user input. Would have to call it twice
+      Scanner scanner = new Scanner(System.in);
+        System.out.print("Name: ");
+        String name = scanner.next();
+        String name2 = scanner.next();
+
+        System.out.println("you are " + name);
+        System.out.println("you are " + name2);
+Name: tom fyfe
+you are tom
+you are fyfe
+
+use .nextLine()
+Name: tom fyfe
+you are tom fyfe
+
+chain on .trim() to remove any white space-
+
+
+
+
 NumberFormat has a number of factory methods beginning with 'get'
 Use these to instantiate an abstract class
 Called a factory method because it creates new objects
