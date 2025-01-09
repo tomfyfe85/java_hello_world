@@ -223,7 +223,7 @@ use .nextLine()
 Name: tom fyfe
 you are tom fyfe
 
-chain on .trim() to remove any white space-
+chain on .trim() to remove any white space
 
 
 
