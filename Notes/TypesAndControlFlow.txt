@@ -290,7 +290,7 @@ reading input
     scanner.nextLine() to  get whole string entered
     use trim to get rid of scanner.nextLine()
 
- PART2:
+ PART2 CONTROL FLOW:
  COMPARISON OPERATORS:
 if {}
 else if
