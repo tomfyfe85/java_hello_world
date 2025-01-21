@@ -1,10 +1,14 @@
 package com.codewithmosh;
 
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        int income = 120_000;
-        String className = income > 100_000 ? "First" : "Economy";
-        System.out.println(className);
+       String[] fruits = {"apple", "orange", "banana"};
+
+       for (String fruit:fruits)
+           System.out.println(fruit);
+
     }
 }
