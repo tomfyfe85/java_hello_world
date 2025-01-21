@@ -136,31 +136,44 @@ public class MortgageCalculator {
         final byte MIN_PERIOD = 1;
         final byte MAX_PERIOD = 30;
 
-        System.out.println("Enter Principle: ");
+        int principle = 0;
+        float annualInterest = 0;
+        float monthlyInterest = 0;
+        int numberOfPayments = 0;
+
         Scanner scanner = new Scanner(System.in);
-        int principle = scanner.nextInt();
-        while(principle < MIN_PRINCIPLE || principle > MAX_PRINCIPLE){
-            System.out.println("principle can only be between 1,000 and 1,000,000");
+        while(true){
+            System.out.println("Enter Principle: ");
             principle = scanner.nextInt();
+            if(principle >= MIN_PRINCIPLE && principle <= MAX_PRINCIPLE){
+                break;
+            }
+            System.out.println("principle can only be between 1,000 and 1,000,000");
         }
 
-        System.out.println("Enter annual interest rate: ");
-        float annualInterest = scanner.nextFloat();
-        while(annualInterest < MIN_INTEREST || annualInterest > MAX_INTEREST){
-            System.out.println("interest rate must in greater than 0 and =< 30");
+        while(true){
+            System.out.println("Enter annual interest rate: ");
             annualInterest = scanner.nextFloat();
+            if(annualInterest >= MIN_INTEREST && annualInterest <= MAX_INTEREST){
+                monthlyInterest = annualInterest/PERCENT/MONTHS_IN_YEAR;
+                break;
+            }
+            System.out.println("interest rate must in greater than 0 and =< 30");
         }
 
-        float monthlyInterest = annualInterest/PERCENT/MONTHS_IN_YEAR;
 
-        System.out.println("Enter period(years): ");
-        byte years = scanner.nextByte();
-        while(years < MIN_PERIOD || years > MAX_PERIOD){
+
+        while(true){
+            System.out.println("Enter period(years): ");
+            byte years = scanner.nextByte();
+            if(years >= MIN_PERIOD || years <= MAX_PERIOD){
+                numberOfPayments = years * PERCENT;
+                break;
+            }
             System.out.println("period must be between 1 and 30(inclusive)");
-            years = scanner.nextByte();
         }
 
-        int numberOfPayments = years * PERCENT;
+      ;
 
         double numerator = (Math.pow((1+monthlyInterest), numberOfPayments)) * monthlyInterest;
         double denominator = (Math.pow((1+monthlyInterest), numberOfPayments)) - 1;
