@@ -127,8 +127,6 @@ import java.util.Scanner;
 
 public class MortgageCalculator {
     public static void main(String[] args) {
-        final byte MONTHS_IN_YEAR = 12;
-        final byte PERCENT = 100;
         final int MAX_PRINCIPLE = 1_000_000;
         final int MIN_PRINCIPLE = 1000;
         final byte MIN_INTEREST = 0;
@@ -138,8 +136,7 @@ public class MortgageCalculator {
 
         int principle = 0;
         float annualInterest = 0;
-        float monthlyInterest = 0;
-        int numberOfPayments = 0;
+        byte years = 0;
 
         Scanner scanner = new Scanner(System.in);
         while(true){
@@ -154,29 +151,41 @@ public class MortgageCalculator {
         while(true){
             System.out.println("Enter annual interest rate: ");
             annualInterest = scanner.nextFloat();
-            if(annualInterest >= MIN_INTEREST && annualInterest <= MAX_INTEREST){
-                monthlyInterest = annualInterest/PERCENT/MONTHS_IN_YEAR;
+            if(annualInterest >= MIN_INTEREST && annualInterest <= MAX_INTEREST)
                 break;
-            }
             System.out.println("interest rate must in greater than 0 and =< 30");
         }
 
         while(true){
             System.out.println("Enter period(years): ");
-            byte years = scanner.nextByte();
-            if(years >= MIN_PERIOD || years <= MAX_PERIOD){
-                numberOfPayments = years * PERCENT;
+            years = scanner.nextByte();
+            if(years >= MIN_PERIOD || years <= MAX_PERIOD)
                 break;
-            }
             System.out.println("period must be between 1 and 30(inclusive)");
         }
 
-        double numerator = (Math.pow((1+monthlyInterest), numberOfPayments)) * monthlyInterest;
-        double denominator = (Math.pow((1+monthlyInterest), numberOfPayments)) - 1;
-        double mortgage = (numerator/denominator) * principle;
+        double mortgage = calculateMortgage(principle, annualInterest, years);
 
         String formattedMortgage = NumberFormat.getCurrencyInstance().format(mortgage);
-        System.out.println("Mortgage: " + formattedMortgage);
+        System.out.println("Mortage: "+ formattedMortgage);
+    }
+
+     public static double calculateMortgage(
+             int principle,
+             float annualInterest,
+             byte years){
+
+         final byte PERCENT = 100;
+         final byte MONTHS_IN_YEAR = 12;
+
+         float monthlyInterest = annualInterest/PERCENT/MONTHS_IN_YEAR;
+         short numberOfPayments = (short)(years * PERCENT);
+
+         double numerator = (Math.pow((1+monthlyInterest), numberOfPayments)) * monthlyInterest;
+         double denominator = (Math.pow((1+monthlyInterest), numberOfPayments)) - 1;
+         double mortgage = (numerator/denominator) * principle;
+
+         return mortgage;
      }
 }
 
