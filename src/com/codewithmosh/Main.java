@@ -1,14 +1,16 @@
 package com.codewithmosh;
 
-
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
-       String[] fruits = {"apple", "orange", "banana"};
-
-       for (String fruit:fruits)
-           System.out.println(fruit);
+       String name1 =  greetUser("Tom", "Fyfe");
+       String name2 =  greetUser("John", "Spartan");
+        System.out.println(name1);
+        System.out.println(name2);
 
     }
+
+    public static String greetUser(String firstName, String lastName){
+        return "Hello " + firstName + " " + lastName;
+    }
+
 }

@@ -1,10 +1,29 @@
-CREATING METHODS
-public class Scratch {
+CREATING METHODS:
+
+Public - method can be called outside of it's class
+Static -  a method that belongs to a class not an object
+
+public class Main {
     public static void main(String[] args) {
-        greetUser("Tom", "Fyfe");
+       String name1 =  greetUser("Tom", "Fyfe");
+       String name2 =  greetUser("John", "Spartan");
+        System.out.println(name1);
+        System.out.println(name2);
+
     }
-    public static void greetUser(String firstName, String lastName){
-        System.out.println("hello " + firstName + " " + lastName);
+
+    public static String greetUser(String firstName, String lastName){
+        return "Hello " + firstName + " " + lastName;
     }
+
 }
+
+REFACTORING:
+Changing the structure of your code without changing its behaviour
+
+Methods should be no longer than 20 lines
+When refactoring, look for 2 things:
+1)The concepts or lines of code that always got together
+
+
 

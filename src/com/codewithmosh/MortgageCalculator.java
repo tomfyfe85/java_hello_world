@@ -161,8 +161,6 @@ public class MortgageCalculator {
             System.out.println("interest rate must in greater than 0 and =< 30");
         }
 
-
-
         while(true){
             System.out.println("Enter period(years): ");
             byte years = scanner.nextByte();
@@ -172,8 +170,6 @@ public class MortgageCalculator {
             }
             System.out.println("period must be between 1 and 30(inclusive)");
         }
-
-      ;
 
         double numerator = (Math.pow((1+monthlyInterest), numberOfPayments)) * monthlyInterest;
         double denominator = (Math.pow((1+monthlyInterest), numberOfPayments)) - 1;
