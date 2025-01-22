@@ -22,9 +22,8 @@ REFACTORING:
 Changing the structure of your code without changing its behaviour
 
 Methods should be no longer than 20 lines
-When refactoring, look for 2 things:
-1)The concepts or lines of code that always got together
+When refactoring, look for 2 concepts or lines of code that always got together
 
-EXTRACTING METHODS:
+
 
 
