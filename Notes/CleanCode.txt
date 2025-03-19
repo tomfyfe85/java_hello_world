@@ -1,3 +1,37 @@
+CREATING METHODS:
 
+Public - method can be called outside of it's class
+Static -  a method that belongs to a class not an object
+
+public class Main {
+    public static void main(String[] args) {
+       String name1 =  greetUser("Tom", "Fyfe");
+       String name2 =  greetUser("John", "Spartan");
+        System.out.println(name1);
+        System.out.println(name2);
+
+    }
+
+    public static String greetUser(String firstName, String lastName){
+        return "Hello " + firstName + " " + lastName;
+    }
+
+}
+
+REFACTORING:
+Changing the structure of your code without changing its behaviour
+
+Methods should be no longer than 20 lines
+When refactoring, look for 2 concepts or lines of code that always got together
+
+Make new method to do a task in the code. It should be reusable.
+IE a method for calculating the mortgage
+
+Look for repetitive patterns in the code - IE the while loops in the mortgage calculator.
+
+
+REFACTORING REPETITIVE PATTERNS:
+Make a generic function that can handle the logic of similar functionality in a large code block,
+IE infinite while loops doing similar error handling.
 
 
