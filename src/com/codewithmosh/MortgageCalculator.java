@@ -34,11 +34,11 @@ public class MortgageCalculator {
              float annualInterest,
              byte years) {
 
-         final byte PERCENT = 100;
          final byte MONTHS_IN_YEAR = 12;
+         final byte PERCENT = 100;
 
          float monthlyInterest = annualInterest/PERCENT/MONTHS_IN_YEAR;
-         short numberOfPayments = (short)(years * PERCENT);
+         short numberOfPayments = (short)(years * MONTHS_IN_YEAR);
 
          double numerator = (Math.pow((1+monthlyInterest), numberOfPayments)) * monthlyInterest;
          double denominator = (Math.pow((1+monthlyInterest), numberOfPayments)) - 1;
