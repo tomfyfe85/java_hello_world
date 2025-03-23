@@ -1,5 +1,6 @@
 package com.codewithmosh;
 
+import java.sql.SQLOutput;
 import java.text.NumberFormat;
 import java.util.Scanner;
 
@@ -13,7 +14,14 @@ public class MortgageCalculator {
         double mortgage = calculateMortgage(principle, annualInterest, years);
 
         String formattedMortgage = NumberFormat.getCurrencyInstance().format(mortgage);
-        System.out.println("Mortage: "+ formattedMortgage);
+        System.out.println();
+        System.out.println("MORTGAGE");
+        System.out.println("--------");
+        System.out.println("Monthly Payments: "+ formattedMortgage);
+        System.out.println();
+        System.out.println("PAYMENT SCHEDULE");
+        System.out.println("----------------");
+
     }
 
      public static double readNumber(String prompt, double min, double max){
