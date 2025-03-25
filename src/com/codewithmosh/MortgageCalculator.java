@@ -5,6 +5,9 @@ import java.lang.Math;
 
 
 public class MortgageCalculator {
+    final static byte MONTHS_IN_YEAR = 12;
+    final static byte PERCENT = 100;
+
     public static void main(String[] args) {
 
         int principle = (int) readNumber("Principle: ", 1000, 1_000_000);
@@ -13,27 +16,27 @@ public class MortgageCalculator {
 
         short numberOfPayments = numberOfPaymentsGenerator(years);
         float monthlyInterest = monthlyInterestGenerator(annualInterest);
+
         double mortgage = calculateMortgage(principle, monthlyInterest, numberOfPayments);
-
-
         String formattedMortgage = NumberFormat.getCurrencyInstance().format(mortgage);
         System.out.println();
         System.out.println("MORTGAGE");
         System.out.println("--------");
         System.out.println("Monthly Payments: " + formattedMortgage);
+
         System.out.println();
         System.out.println("PAYMENT SCHEDULE");
         System.out.println("----------------");
-
-        double leftToPay = 0;
-        for (int i = 1; i <= numberOfPayments; i++) {
-            leftToPay = remainingPayment(principle, monthlyInterest, numberOfPayments, i);
+        for (int month = 1; month <= numberOfPayments; month++) {
+            double leftToPay = calculateBalance(principle, monthlyInterest, numberOfPayments, month);
             String totalRemaining = NumberFormat.getCurrencyInstance().format(leftToPay);
+
             System.out.println(totalRemaining);
         }
     }
 
     public static double readNumber(String prompt, double min, double max) {
+
         Scanner scanner = new Scanner(System.in);
         double value;
         while (true) {
@@ -43,6 +46,7 @@ public class MortgageCalculator {
                 break;
             System.out.println("Enter a value between " + min + "and " + max);
         }
+
         return value;
     }
 
@@ -57,21 +61,24 @@ public class MortgageCalculator {
         return (numerator / denominator) * principle;
     }
 
-    public static double remainingPayment(int principle, float monthlyInterest, short noOfPayments, int noOfPaymentsMade) {
+    public static double calculateBalance(
+            int principle,
+            float monthlyInterest,
+            short noOfPayments,
+            int noOfPaymentsMade) {
 
         double numerator = principle * (Math.pow((1 + monthlyInterest), noOfPayments) - Math.pow((1 + monthlyInterest), noOfPaymentsMade));
         double denominator = Math.pow((1 + monthlyInterest), noOfPayments) - 1;
+
         return numerator / denominator;
     }
 
     public static short numberOfPaymentsGenerator(byte years) {
-        final byte MONTHS_IN_YEAR = 12;
+
         return (short) (years * MONTHS_IN_YEAR);
     }
 
     public static float monthlyInterestGenerator(float annualInterest){
-        final byte MONTHS_IN_YEAR = 12;
-        final byte PERCENT = 100;
 
         return annualInterest / PERCENT / MONTHS_IN_YEAR;
     }
