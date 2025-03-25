@@ -1,1 +1,26 @@
 Project - Payment Schedule
+The next formula is used to calculate the remaining loan balance (B)
+of a fixed payment loan after p months.
+B = L[(1 + c)n - (1 + c)p]/[(1 + c)n - 1]
+
+L = principle
+c = monthly interest
+n = number of payments -  12 per year
+p = number of payments made
+
+Multiply L by [(1 + c)n - (1 + c)p]
+
+then divide by
+
+[(1 + c)n - 1]
+
+make a new method for calculating the remaining payments
+Use a loop to run for number of months period, this decrements and is an
+argument for the remainingPau
+print result of method per iteration
+
+In method create a dynamic variable for number of payments,
+
+
+
+

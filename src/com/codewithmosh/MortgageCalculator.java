@@ -1,33 +1,42 @@
 package com.codewithmosh;
-
-import java.sql.SQLOutput;
 import java.text.NumberFormat;
 import java.util.Scanner;
+import java.lang.Math;
+
 
 public class MortgageCalculator {
     public static void main(String[] args) {
 
-        int principle = (int)readNumber("Principle: ", 1000, 1_000_000);
-        float annualInterest = (float)readNumber("Annual Interest Rate: ", 1, 30);
-        byte years = (byte)readNumber("Period (years): ", 1, 30);
+        int principle = (int) readNumber("Principle: ", 1000, 1_000_000);
+        float annualInterest = (float) readNumber("Annual Interest Rate: ", 1, 30);
+        byte years = (byte) readNumber("Period (years): ", 1, 30);
 
-        double mortgage = calculateMortgage(principle, annualInterest, years);
+        short numberOfPayments = numberOfPaymentsGenerator(years);
+        float monthlyInterest = monthlyInterestGenerator(annualInterest);
+        double mortgage = calculateMortgage(principle, monthlyInterest, numberOfPayments);
+
 
         String formattedMortgage = NumberFormat.getCurrencyInstance().format(mortgage);
         System.out.println();
         System.out.println("MORTGAGE");
         System.out.println("--------");
-        System.out.println("Monthly Payments: "+ formattedMortgage);
+        System.out.println("Monthly Payments: " + formattedMortgage);
         System.out.println();
         System.out.println("PAYMENT SCHEDULE");
         System.out.println("----------------");
 
+        double leftToPay = 0;
+        for (int i = 1; i <= numberOfPayments; i++) {
+            leftToPay = remainingPayment(principle, monthlyInterest, numberOfPayments, i);
+            String totalRemaining = NumberFormat.getCurrencyInstance().format(leftToPay);
+            System.out.println(totalRemaining);
+        }
     }
 
-     public static double readNumber(String prompt, double min, double max){
+    public static double readNumber(String prompt, double min, double max) {
         Scanner scanner = new Scanner(System.in);
         double value;
-        while (true){
+        while (true) {
             System.out.print(prompt);
             value = scanner.nextFloat();
             if (value >= min && value <= max)
@@ -35,27 +44,38 @@ public class MortgageCalculator {
             System.out.println("Enter a value between " + min + "and " + max);
         }
         return value;
-     }
+    }
 
-     public static double calculateMortgage(
-             int principle,
-             float annualInterest,
-             byte years) {
+    public static double calculateMortgage(
+            int principle,
+            float monthlyInterest,
+            short numberOfPayments) {
 
-         final byte MONTHS_IN_YEAR = 12;
-         final byte PERCENT = 100;
+        double numerator = (Math.pow((1 + monthlyInterest), numberOfPayments)) * monthlyInterest;
+        double denominator = (Math.pow((1 + monthlyInterest), numberOfPayments)) - 1;
 
-         float monthlyInterest = annualInterest/PERCENT/MONTHS_IN_YEAR;
-         short numberOfPayments = (short)(years * MONTHS_IN_YEAR);
+        return (numerator / denominator) * principle;
+    }
 
-         double numerator = (Math.pow((1+monthlyInterest), numberOfPayments)) * monthlyInterest;
-         double denominator = (Math.pow((1+monthlyInterest), numberOfPayments)) - 1;
-         double mortgage = (numerator/denominator) * principle;
+    public static double remainingPayment(int principle, float monthlyInterest, short noOfPayments, int noOfPaymentsMade) {
 
-         return mortgage;
-     }
+        double numerator = principle * (Math.pow((1 + monthlyInterest), noOfPayments) - Math.pow((1 + monthlyInterest), noOfPaymentsMade));
+        double denominator = Math.pow((1 + monthlyInterest), noOfPayments) - 1;
+        return numerator / denominator;
+    }
+
+    public static short numberOfPaymentsGenerator(byte years) {
+        final byte MONTHS_IN_YEAR = 12;
+        return (short) (years * MONTHS_IN_YEAR);
+    }
+
+    public static float monthlyInterestGenerator(float annualInterest){
+        final byte MONTHS_IN_YEAR = 12;
+        final byte PERCENT = 100;
+
+        return annualInterest / PERCENT / MONTHS_IN_YEAR;
+    }
 }
-
 
 
 
