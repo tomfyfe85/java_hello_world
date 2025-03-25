@@ -17,13 +17,20 @@ public class MortgageCalculator {
         short numberOfPayments = numberOfPaymentsGenerator(years);
         float monthlyInterest = monthlyInterestGenerator(annualInterest);
 
+        printMortgage(principle, monthlyInterest, numberOfPayments);
+        printPaymentSchedule(numberOfPayments, principle, monthlyInterest);
+    }
+
+    private static void printMortgage(int principle, float monthlyInterest, short numberOfPayments) {
         double mortgage = calculateMortgage(principle, monthlyInterest, numberOfPayments);
         String formattedMortgage = NumberFormat.getCurrencyInstance().format(mortgage);
         System.out.println();
         System.out.println("MORTGAGE");
         System.out.println("--------");
         System.out.println("Monthly Payments: " + formattedMortgage);
+    }
 
+    private static void printPaymentSchedule(short numberOfPayments, int principle, float monthlyInterest) {
         System.out.println();
         System.out.println("PAYMENT SCHEDULE");
         System.out.println("----------------");
