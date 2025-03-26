@@ -21,8 +21,10 @@ public class Main {
 REFACTORING:
 Changing the structure of your code without changing its behaviour
 
+Methods should be ideally between 5-10 lines
 Methods should be no longer than 20 lines
-When refactoring, look for 2 concepts or lines of code that always got together
+
+When refactoring, repetitive patterns and highly repetitive statements. Look for concepts or lines of code that always go together
 
 Make new method to do a task in the code. It should be reusable.
 IE a method for calculating the mortgage
