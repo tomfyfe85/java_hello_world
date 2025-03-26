@@ -27,3 +27,29 @@ the field's state is changed by the methods
 var - Java complier will detect the type of this variable
 based on what we have on the right hand side of the =
 Not like in JavaScript
+
+Memory allocation:
+HEAP - where objects are stored
+STACK - primitives and short-lived variables
+
+var textBox1 = new TextBox();
+Here Java first allocated memory new TextBox() on the heap
+Then is stores a reference to it - textBox1 on the Stack
+
+Encapsulation:
+Bundle the data, and methods that operate on the data in a
+single unit.
+
+public class Employee {
+    public int baseSalary;
+    public int hourlyRate;
+    public int extraHours;
+
+    public int calculateWage(){
+        return baseSalary+ (extraHours * hourlyRate);
+    }
+
+No need to pass in value as paramemters in calculateWage.
+Instead of passing values around, they should be encapsulated
+along with the methods that operate on them, in a single object.
+
