@@ -49,7 +49,52 @@ public class Employee {
         return baseSalary+ (extraHours * hourlyRate);
     }
 
-No need to pass in value as paramemters in calculateWage.
+No need to pass in value as parameters in calculateWage.
 Instead of passing values around, they should be encapsulated
 along with the methods that operate on them, in a single object.
 
+Encapsulating data validation
+
+    public void setBaseSalary(int baseSalary){
+        if (baseSalary <= 0)
+            throw new IllegalArgumentException("Salary cannot be 0 or less");
+        this.baseSalary = baseSalary;}
+        }
+In Java, make fields private and use getters and setters to work with them.
+
+Getters and Setters:
+by making fields private, we prevent direct modification from the outside class.
+Use a set method to validate the data and a get to return it in the main class.
+
+ABSTRACTION:
+Reduce complexity by hiding unnecessary details.
+Hide implementation detail. Like circuitry in a tv remote. We see the buttons,
+everything else this hidden in the remote, and the user doesn't really care how
+it works.
+
+COUPLING:
+The level of dependency between classes. We want to reduce this.
+Make methods not used in main private, this reduces the coupling between the
+two classes.
+
+
+Reducing Coupling:
+Trying to keep all methods used internally in a class private. These unnecessary
+methods pollute the class methods in available in the main class
+
+Constructors:
+Use constructors to set data from the initialisation of the object.
+This abstracts the methods and decouples the class further from main.
+IE
+public class Employee {
+    private int baseSalary;
+    private int hourlyRate;
+
+    public Employee(int baseSalary, int hourlyRate){
+        setBaseSalary(baseSalary);
+        setHourlyRate(hourlyRate);
+    }
+
+Static fields and methods:
+Use static fields in situations where the value is independant of any instance
+methods/objects. IE number of employees in the firm.

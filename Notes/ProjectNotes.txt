@@ -21,6 +21,9 @@ print result of method per iteration
 
 In method create a dynamic variable for number of payments,
 
-
+------------
+ENCAPSULATION;
+create a getter and a setter for hourlyRate field
+make
 
 
