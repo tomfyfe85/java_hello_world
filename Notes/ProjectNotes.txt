@@ -26,4 +26,14 @@ ENCAPSULATION;
 create a getter and a setter for hourlyRate field
 make
 
+PLANNING: MortageCalculator refactor
+
+use readNumer to set principle, annualInterest and years in a
+constructor
+
+printMortage and printPaymentSchedule can be in a class
+calculateMortage ands calculateBalance in a class
+
+numberOfPaymentsGenerator and  monthlyInterestGenerator into a class
+
 
