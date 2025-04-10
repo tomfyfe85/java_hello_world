@@ -8,18 +8,27 @@ public class MortgageCalculator {
     final static byte MONTHS_IN_YEAR = 12;
     final static byte PERCENT = 100;
 
-    public static void main(String[] args) {
+    int principle = (int) readNumber("Principle: ", 1000, 1_000_000);
+    float annualInterest = (float) readNumber("Annual Interest Rate: ", 1, 30);
+    byte years = (byte) readNumber("Period (years): ", 1, 30);
 
-        int principle = (int) readNumber("Principle: ", 1000, 1_000_000);
-        float annualInterest = (float) readNumber("Annual Interest Rate: ", 1, 30);
-        byte years = (byte) readNumber("Period (years): ", 1, 30);
-
-        short numberOfPayments = numberOfPaymentsGenerator(years);
-        float monthlyInterest = monthlyInterestGenerator(annualInterest);
-
-        printMortgage(principle, monthlyInterest, numberOfPayments);
-        printPaymentSchedule(numberOfPayments, principle, monthlyInterest);
-    }
+//    public MortgageCalculator(){
+//        this.principle = principle;
+//        this.annualInterest = annualInterest;
+//        this.years = years;
+//    }
+//    public static void main(String[] args) {
+//
+//        int principle = (int) readNumber("Principle: ", 1000, 1_000_000);
+//        float annualInterest = (float) readNumber("Annual Interest Rate: ", 1, 30);
+//        byte years = (byte) readNumber("Period (years): ", 1, 30);
+//
+//        short numberOfPayments = numberOfPaymentsGenerator(years);
+//        float monthlyInterest = monthlyInterestGenerator(annualInterest);
+//
+//        printMortgage(principle, monthlyInterest, numberOfPayments);
+//        printPaymentSchedule(numberOfPayments, principle, monthlyInterest);
+//    }
 
     private static void printMortgage(int principle, float monthlyInterest, short numberOfPayments) {
         double mortgage = calculateMortgage(principle, monthlyInterest, numberOfPayments);
