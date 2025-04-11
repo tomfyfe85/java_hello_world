@@ -8,38 +8,28 @@ public class MortgageCalculator {
     final static byte MONTHS_IN_YEAR = 12;
     final static byte PERCENT = 100;
 
-    int principle = (int) readNumber("Principle: ", 1000, 1_000_000);
-    float annualInterest = (float) readNumber("Annual Interest Rate: ", 1, 30);
-    byte years = (byte) readNumber("Period (years): ", 1, 30);
+    private int principle = (int) readNumber("Principle: ", 1000, 1_000_000);
+    private float annualInterest = (float) readNumber("Annual Interest Rate: ", 1, 30);
+    private byte years = (byte) readNumber("Period (years): ", 1, 30);
 
-//    public MortgageCalculator(){
-//        this.principle = principle;
-//        this.annualInterest = annualInterest;
-//        this.years = years;
-//    }
-//    public static void main(String[] args) {
-//
-//        int principle = (int) readNumber("Principle: ", 1000, 1_000_000);
-//        float annualInterest = (float) readNumber("Annual Interest Rate: ", 1, 30);
-//        byte years = (byte) readNumber("Period (years): ", 1, 30);
-//
-//        short numberOfPayments = numberOfPaymentsGenerator(years);
-//        float monthlyInterest = monthlyInterestGenerator(annualInterest);
-//
-//        printMortgage(principle, monthlyInterest, numberOfPayments);
-//        printPaymentSchedule(numberOfPayments, principle, monthlyInterest);
-//    }
+   private short numberOfPayments = numberOfPaymentsGenerator();
+   private float monthlyInterest = monthlyInterestGenerator();
 
-    private static void printMortgage(int principle, float monthlyInterest, short numberOfPayments) {
-        double mortgage = calculateMortgage(principle, monthlyInterest, numberOfPayments);
+    public boolean printMortgageAndShedule(){
+        printMortgage();
+        printPaymentSchedule();
+        return false;
+    }
+
+    private void printMortgage() {
+        double mortgage = calculateMortgage();
         String formattedMortgage = NumberFormat.getCurrencyInstance().format(mortgage);
         System.out.println();
         System.out.println("MORTGAGE");
         System.out.println("--------");
-        System.out.println("Monthly Payments: " + formattedMortgage);
-    }
+        System.out.println("Monthly Payments: " + formattedMortgage);}
 
-    private static void printPaymentSchedule(short numberOfPayments, int principle, float monthlyInterest) {
+    private void printPaymentSchedule() {
         System.out.println();
         System.out.println("PAYMENT SCHEDULE");
         System.out.println("----------------");
@@ -51,7 +41,7 @@ public class MortgageCalculator {
         }
     }
 
-    public static double readNumber(String prompt, double min, double max) {
+    private static double readNumber(String prompt, double min, double max) {
 
         Scanner scanner = new Scanner(System.in);
         double value;
@@ -66,10 +56,7 @@ public class MortgageCalculator {
         return value;
     }
 
-    public static double calculateMortgage(
-            int principle,
-            float monthlyInterest,
-            short numberOfPayments) {
+    private double calculateMortgage() {
 
         double numerator = (Math.pow((1 + monthlyInterest), numberOfPayments)) * monthlyInterest;
         double denominator = (Math.pow((1 + monthlyInterest), numberOfPayments)) - 1;
@@ -77,7 +64,7 @@ public class MortgageCalculator {
         return (numerator / denominator) * principle;
     }
 
-    public static double calculateBalance(
+   private static double calculateBalance(
             int principle,
             float monthlyInterest,
             short noOfPayments,
@@ -89,12 +76,12 @@ public class MortgageCalculator {
         return numerator / denominator;
     }
 
-    public static short numberOfPaymentsGenerator(byte years) {
+    private short numberOfPaymentsGenerator() {
 
         return (short) (years * MONTHS_IN_YEAR);
     }
 
-    public static float monthlyInterestGenerator(float annualInterest){
+    private float monthlyInterestGenerator(){
 
         return annualInterest / PERCENT / MONTHS_IN_YEAR;
     }
