@@ -5,8 +5,7 @@ import java.lang.Math;
 
 
 public class MortgageCalculator {
-    final static byte MONTHS_IN_YEAR = 12;
-    final static byte PERCENT = 100;
+
 
     private int principle = (int) readNumber("Principle: ", 1000, 1_000_000);
     private float annualInterest = (float) readNumber("Annual Interest Rate: ", 1, 30);
@@ -76,15 +75,7 @@ public class MortgageCalculator {
         return numerator / denominator;
     }
 
-    private short numberOfPaymentsGenerator() {
 
-        return (short) (years * MONTHS_IN_YEAR);
-    }
-
-    private float monthlyInterestGenerator(){
-
-        return annualInterest / PERCENT / MONTHS_IN_YEAR;
-    }
 }
 
 
