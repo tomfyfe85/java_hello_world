@@ -7,17 +7,19 @@ public class Generator {
     private byte  years;
     private float annualInterest;
 
+
+
     Generator(byte years, float annualInterest){
         this.years = years;
         this.annualInterest = annualInterest;
     }
 
-    private short numberOfPaymentsGenerator() {
+    public short numberOfPaymentsGenerator() {
 
         return (short) (this.years * MONTHS_IN_YEAR);
     }
 
-    private float monthlyInterestGenerator(){
+    public float monthlyInterestGenerator(){
 
         return this.annualInterest / PERCENT / MONTHS_IN_YEAR;
     }
