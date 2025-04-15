@@ -3,8 +3,12 @@ package com.refactoredcalculator;
 import java.text.NumberFormat;
 
 public class MortageReport {
+
+    private static MortageCalculator calculator;
+
     public static void printMortgage(int principal, float annualInterest, byte years) {
-        double mortgage = Main.calculateMortgage(principal, annualInterest, years);
+        calculator = new MortageCalculator(years,annualInterest, principal);
+        double mortgage = calculator.calculateMortgage();
         String mortgageFormatted = NumberFormat.getCurrencyInstance().format(mortgage);
         System.out.println();
         System.out.println("MORTGAGE");
@@ -17,7 +21,7 @@ public class MortageReport {
         System.out.println("PAYMENT SCHEDULE");
         System.out.println("----------------");
         for (short month = 1; month <= years * Main.MONTHS_IN_YEAR; month++) {
-            double balance = Main.calculateBalance(principal, annualInterest, years, month);
+            double balance = MortageCalculator.calculateBalance(principal, annualInterest, years, month);
             System.out.println(NumberFormat.getCurrencyInstance().format(balance));
         }
     }
