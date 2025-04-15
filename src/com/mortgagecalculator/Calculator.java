@@ -1,4 +1,4 @@
-package com.codewithmosh;
+package com.mortgagecalculator;
 
 public class Calculator {
     private int principle;

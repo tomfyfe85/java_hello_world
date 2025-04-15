@@ -1,4 +1,5 @@
-package com.codewithmosh;
+package com.mortgagecalculator;
+
 import java.util.Scanner;
 
 

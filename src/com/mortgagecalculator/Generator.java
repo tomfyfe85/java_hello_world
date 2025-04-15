@@ -1,4 +1,4 @@
-package com.codewithmosh;
+package com.mortgagecalculator;
 
 public class Generator {
     final static byte MONTHS_IN_YEAR = 12;

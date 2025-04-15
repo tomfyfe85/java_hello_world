@@ -1,4 +1,4 @@
-package com.codewithmosh;
+package com.mortgagecalculator;
 
 import java.text.NumberFormat;
 
