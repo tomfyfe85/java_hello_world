@@ -1,14 +1,12 @@
 package com.mortgagecalculator;
 
-import java.util.Scanner;
-
 
 public class MortgageCalculator {
 
 
-    private int principle = (int) readNumber("Principle: ", 1000, 1_000_000);
-    private float annualInterest = (float) readNumber("Annual Interest Rate: ", 1, 30);
-    private byte years = (byte) readNumber("Period (years): ", 1, 30);
+    private int principle = (int) Console.readNumber("Principle: ", 1000, 1_000_000);
+    private float annualInterest = (float) Console.readNumber("Annual Interest Rate: ", 1, 30);
+    private byte years = (byte) Console.readNumber("Period (years): ", 1, 30);
 
 
     public void printMortgageAndBalance(){
@@ -17,21 +15,7 @@ public class MortgageCalculator {
         print.printPaymentSchedule();
     }
 
-    private static double readNumber(String prompt, double min, double max) {
-
-        Scanner scanner = new Scanner(System.in);
-        double value;
-        while (true) {
-            System.out.print(prompt);
-            value = scanner.nextFloat();
-            if (value >= min && value <= max)
-                break;
-            System.out.println("Enter a value between " + min + "and " + max);
-        }
-
-        return value;
-      }
-    }
+}
 
 
 
