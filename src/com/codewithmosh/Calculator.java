@@ -1,21 +1,23 @@
 package com.codewithmosh;
 
-public class Calculate {
+public class Calculator {
     private int principle;
     private short numberOfPayments;
     private float monthlyInterest;
+    private int numberOfPaymentsMade;
 
 
-    public Calculate(int principle, float annualInterest, byte years){
+    public Calculator(int principle, float annualInterest, byte years, int numberOfPaymentsMade){
         var generate = new Generator(years, annualInterest);
 
         this.principle = principle;
         this.monthlyInterest = generate.monthlyInterestGenerator();
         this.numberOfPayments = generate.numberOfPaymentsGenerator();
+        this.numberOfPaymentsMade = numberOfPaymentsMade;
 
     }
 
-    private double calculateMortgage() {
+    public double calculateMortgage() {
 
         double numerator = (Math.pow((1 + monthlyInterest), numberOfPayments)) * monthlyInterest;
         double denominator = (Math.pow((1 + monthlyInterest), numberOfPayments)) - 1;
@@ -23,14 +25,9 @@ public class Calculate {
         return (numerator / denominator) * principle;
     }
 
-    private static double calculateBalance(
-            int principle,
-            float monthlyInterest,
-            short noOfPayments,
-            int noOfPaymentsMade) {
-
-        double numerator = principle * (Math.pow((1 + monthlyInterest), noOfPayments) - Math.pow((1 + monthlyInterest), noOfPaymentsMade));
-        double denominator = Math.pow((1 + monthlyInterest), noOfPayments) - 1;
+    public double calculateBalance() {
+        double numerator = this.principle * (Math.pow((1 + this.monthlyInterest), this.numberOfPayments) - Math.pow((1 + monthlyInterest), this.numberOfPaymentsMade));
+        double denominator = Math.pow((1 + monthlyInterest), this.numberOfPayments) - 1;
 
         return numerator / denominator;
     }
