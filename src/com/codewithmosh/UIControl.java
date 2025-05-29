@@ -3,10 +3,12 @@ package com.codewithmosh;
 public class UIControl {
     private boolean isEnabled = true;
 
-    public UIControl(boolean isEnabled) {
-        this.isEnabled = isEnabled;
-//        System.out.println("");
-    }
+//    public UIControl(boolean isEnabled) {
+//        this.isEnabled = isEnabled;
+////        System.out.println("");
+//    }
+
+    public void render(){}
 
     public void enable() {
         isEnabled = true;
