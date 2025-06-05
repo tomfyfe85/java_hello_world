@@ -3,7 +3,6 @@ package com.codewithmosh;
 public abstract class UIControl {
     private boolean isEnabled = true;
 
-
     public abstract void render();
 
     public void enable() {
