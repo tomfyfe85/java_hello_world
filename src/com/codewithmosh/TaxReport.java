@@ -1,14 +1,20 @@
 package com.codewithmosh;
 
 public class TaxReport {
+
     private TaxCalculator calculator;
 
-    public TaxReport() {
-        calculator = new TaxCalculator(100_000);
+    public TaxReport(TaxCalculator calculator) {
+        this.calculator = calculator;
     }
 
     public void show(){
-        var tax = calculator.calcualteTax();
+        var tax = calculator.calculateTax();
         System.out.println(tax);
     }
+
+    public void setCalculator(TaxCalculator calculator) {
+        this.calculator = calculator;
+    }
+
 }
