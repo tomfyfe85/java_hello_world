@@ -1,4 +1,4 @@
 package com.codewithmosh;
 
-public class UIWidget {
+public interface UIWidget {
 }
