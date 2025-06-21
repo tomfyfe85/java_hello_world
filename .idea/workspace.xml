@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e2210b9-e606-4486-9a07-492300957770" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/codewithmosh/Draggable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/codewithmosh/Dragger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/codewithmosh/Resizable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/codewithmosh/TaxCalculator2018.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/codewithmosh/TaxCalculator2018.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/codewithmosh/TaxCalculator2019.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/codewithmosh/TaxCalculator2019.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/codewithmosh/TaxReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/codewithmosh/TaxReport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/codewithmosh/UIWidget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/codewithmosh/UIWidget.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -55,6 +62,11 @@
     ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="com.codewithmosh" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.codewithmosh.Main" />
@@ -116,7 +128,8 @@
       <workItem from="1749113635838" duration="6743000" />
       <workItem from="1749596233038" duration="1236000" />
       <workItem from="1749749074516" duration="163000" />
-      <workItem from="1749771685973" duration="819000" />
+      <workItem from="1749771685973" duration="6783000" />
+      <workItem from="1750494997905" duration="1994000" />
     </task>
     <servers />
   </component>

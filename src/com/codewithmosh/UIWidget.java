@@ -1,4 +1,6 @@
 package com.codewithmosh;
 
-public interface UIWidget {
+public interface UIWidget extends Draggable, Resizable {
+    void render();
 }
+
